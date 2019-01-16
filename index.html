@@ -1,0 +1,59 @@
+<html>
+    <script src="node_modules/jquery/jquery.js"></script>
+    <script src="node_modules/popper.js/dist/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <body>
+        <div id='app'>
+           
+            <input v-model="name" placeholder="name"> 
+            <br>
+            <input v-model="description" placeholder="description"> 
+            <br>
+            <input v-model="completed" placeholder="completed"> 
+            <br>
+            <input v-model="assignedTo" placeholder="assignedTo"> 
+            <br>
+            <input v-model="toDoId" placeholder="id da eliminare"> <br>
+            <input v-model="toDoUser" placeholder="nome utente todo da cercare"><br>
+            <button v-on:click="post">invia dati post</button>
+            <button v-on:click="loadToDos">visualizza todo</button>
+            <button v-on:click="deleteToDo">elimina todo</button>
+            <button v-on:click="getToDoByUser" >cerca todo</button>
+            <div class="row">
+                    <div class="col-sm">
+                        <h1>ToDo tutti dello stesso utente</h1>
+                            <ul class="list-group">
+                                <p> 
+                                    <li  v-for='toDo in toDoUsers' class="list-group-item">id: {{ toDo.id }}<br>name: {{ toDo.name }}<br>description: {{ toDo.description }}<br>completed: {{ toDo.completed }}<br>assignedTo: {{ toDo.assignedTo }} </li>   </p>
+                                    
+    
+                                      
+                                   
+                                </ul>
+                        </div>
+    
+            </div>
+    
+
+            <div class="row">
+                <div class="col-sm">
+                        <h1>Tutti i Todo</h1>
+
+                        <ul class="list-group">
+                            <p> 
+                                <li  v-for='toDo in toDos' class="list-group-item">id: {{ toDo.id }}<br>name: {{ toDo.name }}<br>description: {{ toDo.description }}<br>completed: {{ toDo.completed }}<br>assignedTo: {{ toDo.assignedTo }} </li>   </p>
+                               
+
+                                  
+                               
+                            </ul>
+                    </div>
+
+        </div>
+
+    </body>
+    <script src="./app.js"></script>
+</html>
