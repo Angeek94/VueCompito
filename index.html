@@ -22,20 +22,7 @@
             <button v-on:click="loadToDos">visualizza todo</button>
             <button v-on:click="deleteToDo">elimina todo</button>
             <button v-on:click="getToDoByUser" >cerca todo</button>
-            <div class="row">
-                    <div class="col-sm">
-                        <h1>ToDo tutti dello stesso utente</h1>
-                            <ul class="list-group">
-                                <p> 
-                                    <li  v-for='toDo in toDoUsers' class="list-group-item">id: {{ toDo.id }}<br>name: {{ toDo.name }}<br>description: {{ toDo.description }}<br>completed: {{ toDo.completed }}<br>assignedTo: {{ toDo.assignedTo }} </li>   </p>
-                                    
-    
-                                      
-                                   
-                                </ul>
-                        </div>
-    
-            </div>
+           
     
 
             <div class="row">
@@ -53,7 +40,22 @@
                     </div>
 
         </div>
+        <div class="row">
+            <div class="col-sm">
+                    <h1>Tutti i Todo filtrati per utente</h1>
 
+                    <ul class="list-group">
+                        <p> 
+                            <li  v-for='toDo in toDoUsers' class="list-group-item">id: {{ toDo.id }}<br>name: {{ toDo.name }}<br>description: {{ toDo.description }}<br>completed: {{ toDo.completed }}<br>assignedTo: {{ toDo.assignedTo }} </li>   </p>
+                           
+
+                              
+                           
+                        </ul>
+                </div>
+
+    </div>
+    </div>
     </body>
     <script src="./app.js"></script>
 </html>

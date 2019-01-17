@@ -44,14 +44,14 @@ var vue = new Vue({
         deleteToDo: function() {
             var url = 'http://localhost:3001/deleteToDo/'+ this.toDoId;
             this.$http.delete(url).then(response => {
-                this.toDos=responde.body
+                this.toDos=response.body
             })
             .catch(error => {  })
         },
         getToDoByUser: function() {
             var url = 'http://localhost:3001/getToDoByUser/?user='+ this.toDoUser;
             this.$http.get(url).then(response => {
-                this.toDoUsers=responde.body
+                this.toDoUsers=response.body
             })
             .catch(error => {  })
         },
