@@ -10,10 +10,15 @@ var vue = new Vue({
        assignedTo:"",
        toDoId:null,
        toDoUser:"",
-       
-       error:"non puoi inserire utente"
+       statusUser:null,
+       statusUsers:[],
+       error:"non puoi inserire utente",
+       statusId:null
     },
-    methods: {
+    methods: { 
+        resetData: function () {
+            this.$data = getDefaultData();
+        },
         post:function(){
            
             this.$http.post('http://localhost:3001/post',{
@@ -25,8 +30,8 @@ var vue = new Vue({
             .then(response => { console.log(response)})
             .catch(error => {  })
             
-           },
-           loadUsers: function() {
+        },
+        loadUsers: function() {
             var url = 'http://localhost:3001/getUsers';
             this.$http.get(url).then(response => {
                 this.users= response.body;
@@ -55,10 +60,25 @@ var vue = new Vue({
             })
             .catch(error => {  })
         },
+        putStatusById: function() {
+            var url = 'http://localhost:3001/putStatusById/'+ this.statusId;
+            this.$http.put(url).then(response => {
+                this.toDos=response.body
+            })
+            .catch(error => {  })
+        },
+        getStatus: function() {
+            var url = 'http://localhost:3001/getToDoByStatus/?status='+ this.statusUser;
+            this.$http.get(url).then(response => {
+                this.statusUsers=response.body
+            })
+            .catch(error => {  })
+        },
        
     },
     created: function() {
-        this.loadUsers();
+        
+     
         this.loadToDos();
     },
     watch: {
