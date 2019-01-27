@@ -1,6 +1,7 @@
 var vue = new Vue({
     el: '#app',
     data: {
+        user:null,
         users:"",
         toDos:[],
         toDoUsers:[],
@@ -16,8 +17,15 @@ var vue = new Vue({
        statusId:null
     },
     methods: { 
-        resetData: function () {
-            this.$data = getDefaultData();
+        postUsers:function(){
+           
+            this.$http.post('http://localhost:3001/postUsers',{
+               user:this.user,
+                
+            })
+            .then(response => { console.log(response)})
+            .catch(error => {  })
+            
         },
         post:function(){
            

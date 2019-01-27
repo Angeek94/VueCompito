@@ -31,6 +31,8 @@
                         <button v-on:click="putStatusById" >Modifica Status</button><br><br>
                 </div>
                 <div class="col-sm">
+                    <input v-model="user" placeholder="User"><br>
+                    <button v-on:click="postUsers" >Carica utente</button>
                         <button v-on:click="loadUsers" >Mostra utenti</button><br><br>
                       
                             <h1>Utenti</h1>
