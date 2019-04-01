@@ -82,6 +82,13 @@ var vue = new Vue({
             })
             .catch(error => {  })
         },
+        getStatus1: function() {
+            var url = 'http://localhost:3001/getToDoByStatus/?status='+ this.statusUser;
+            this.$http.get(url).then(response => {
+                this.statusUsers=response.body
+            })
+            .catch(error => {  })
+        },
        
     },
     created: function() {
